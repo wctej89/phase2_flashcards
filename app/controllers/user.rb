@@ -3,14 +3,23 @@ get '/' do
 end
 
 post '/users' do
-  @user = User.create(params[:user])
-  create_session(@user)
+  if params[:user][:password] == params[:password_confirmation]
+    @user = User.create(params[:user])
+    p @user.errors.full_messages unless @user.valid?
+    create_session(@user)
+  else
+    p "password and confirmation do not match"
+  end
   redirect '/'
 end
 
 post '/sessions' do
   @user = User.authenticate(params[:user]) if params[:user][:email]
-  create_session(@user)
+  if @user
+    create_session(@user)
+  else
+    p 'invalid email or password'
+  end
   redirect '/'
 end
 
