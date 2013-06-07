@@ -5,6 +5,9 @@
   <% if logged_in? %>
 
     <a href='/sessions/<%= @current_user.id %>'>Logout</a>
+    <% @decks.each do |deck| %>
+    <a href='/deck/<%=deck.name%>/1'> <%= deck.name %> </a>
+    <% end %>
 
   <% else %>
 

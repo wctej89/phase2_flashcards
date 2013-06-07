@@ -7,4 +7,10 @@ class Deck < ActiveRecord::Base
     self.cards.where('correct = ?', false).sample
   end 
 
+  def reset
+    self.cards.each do |card|
+      card.correct = false
+      card.save
+    end
+  end
 end

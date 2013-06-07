@@ -1,4 +1,5 @@
 get '/' do
+ @decks = Deck.all
  erb :home
 end
 
