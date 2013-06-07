@@ -20,7 +20,7 @@ class CreateTables < ActiveRecord::Migration
 
     create_table :cards do |t|
       t.string     :question, :answer
-      t.boolean    :correct?, default: false
+      t.boolean    :correct, default: false
       t.references :deck
       
       t.timestamps

@@ -1,0 +1,11 @@
+<h2><%= @card.question %></h2>
+
+<%= if @verify then @verify end %><br>
+
+<form action="/deck/<%= @deck.name%>/<%= @card.id%>" method="post">
+  <input type="text" name="answer" placeholder="Your Answer"><br>
+  <input type="submit" value="Submit Answer">
+</form>
+
+
+                                                                                           
