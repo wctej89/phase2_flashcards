@@ -1,5 +1,3 @@
-enable :sessions
-
 get '/deck/:deck_name/:card_id' do |deck_name, card_id|
   @deck = Deck.find_by_name(deck_name)
   @card = Card.find(card_id)
@@ -11,21 +9,22 @@ post '/deck/:deck_name/:card_id' do |deck_name, card_id|
   @deck = Deck.find_by_name(deck_name)
   @card = Card.find(card_id)
 
-  #Need access to the user...so that we can get the round
-  # guess = Guess.where('round_id = ? and card_id = ?', round_id, card_id)
-  # total_per_card = guess.total_per_card + 1
-  # guess.update_attributes(total_per_card: total_per_card)
+  round_id = @current_user.rounds.last
+  guess = Guess.find_or_create_by_round_id_and_card_id(round_id, card_id)
+  guess.total_per_card += 1
+  guess.save
 
   if @card.correct?(params[:answer]) 
     session[:verify] = "Yes, your answer was correct!"
   else 
-    session[:verify] = "No, your answer was incorrect"
+    session[:verify] = "No, your answer was incorrect. Correct answer was #{@card.answer}."
   end
 
   if @deck.find_next
     @card = @deck.find_next
     redirect to("/deck/#{deck_name}/#{@card.id}")
   else
+    @deck.reset
     erb :done
   end
 
