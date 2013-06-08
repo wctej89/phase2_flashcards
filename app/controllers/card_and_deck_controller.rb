@@ -17,12 +17,14 @@ post '/deck/:deck_name/:card_id' do |deck_name, card_id|
 
   user = current_user
   round = user.rounds.last
-  guess = Guess.find_or_create_by_round_id_and_card_id(round.id, card_id)
-  guess.total_per_card += 1
-  guess.save
+  @guess = Guess.find_or_create_by_round_id_and_card_id(round.id, card_id)
+  @guess.total_per_card += 1
+  @guess.save
 
   if @card.correct?(params[:answer]) 
     session[:verify] = "Yes, your answer was correct!"
+    @guess.correct_count += 1
+    @guess.save
   else 
     session[:verify] = "No, your answer was incorrect. Correct answer was #{@card.answer}."
   end
