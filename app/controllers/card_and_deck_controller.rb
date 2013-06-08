@@ -51,4 +51,3 @@ get '/round/:round_id' do |round_id|
   erb :done
 end
 
-make change
