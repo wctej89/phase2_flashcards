@@ -1,8 +1,10 @@
 get '/' do
- @decks = Deck.all
- user = current_user if logged_in?
- @qdata = User.find_all_data(user)
- erb :home
+  @decks = Deck.all
+  if logged_in?
+    user = current_user 
+    @data = User.find_all_data(user.id)
+  end
+  erb :home
 end
 
 post '/users' do
@@ -30,3 +32,5 @@ get '/sessions/:id' do
   session.clear
   redirect '/'
 end
+
+

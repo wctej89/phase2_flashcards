@@ -17,6 +17,18 @@ class User < ActiveRecord::Base
     end
   end
 
+  def self.find_all_data(user_id)
+    data_array = []
+    User.find(user_id).rounds.each do |round|
+      guesses = Guess.where('round_id = ?', round.id)
+      score = guesses.sum('correct_count').to_f/guesses.sum('total_per_card')
+      deck_name = round.deck.name
+      data_array << [round.id, deck_name, score]
+    end
+    p data_array
+  end
+
+
   def password
     @password ||= Password.new(password_hash)
   end
