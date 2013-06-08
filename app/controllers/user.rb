@@ -1,5 +1,7 @@
 get '/' do
  @decks = Deck.all
+ user = current_user if logged_in?
+ @qdata = User.find_all_data(user)
  erb :home
 end
 
