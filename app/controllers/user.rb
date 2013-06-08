@@ -2,7 +2,7 @@ get '/' do
   @decks = Deck.all
   if logged_in?
     user = current_user 
-    @data = User.find_all_data(user.id)
+    @data = User.find_all_scores(user.id)
   end
   erb :home
 end
@@ -10,7 +10,7 @@ end
 post '/users' do
   if params[:user][:password] == params[:password_confirmation]
     @user = User.create(params[:user])
-    p @user.errors.full_messages unless @user.valid?
+    @user.errors.full_messages unless @user.valid?
     create_session(@user)
   else
     p "password and confirmation do not match"

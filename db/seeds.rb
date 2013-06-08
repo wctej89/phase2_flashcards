@@ -15,9 +15,6 @@ capitals.each do |state, capital|
   deck.cards << Card.create(question: state.to_s.capitalize, answer: capital)
 end
 
-
-
-
 # Hawaii: Honolulu,
 # Idaho: Boise,
 # Illinois: Springfield

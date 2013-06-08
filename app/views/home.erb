@@ -1,43 +1,15 @@
-<div class="container">
-  <h1>Ice Cube's Quizinator!</h1>
-  <h3>Where you can quiz yo'self with a quiz when you wanna be quizzed.</h3>
+<h1>Ice Cube's Quizinator!</h1>
+<h3>Where you can quiz yo'self with a quiz when you wanna be quizzed.</h3>
 
-  <% if logged_in? %>
+<% if logged_in? %>
 
-    <a href='/sessions/<%= @current_user.id %>'>Logout</a>
+  <a href='/sessions/<%= @current_user.id %>'>Logout</a><br><br>
+  <%= erb :_decks %>
+  <%= erb :_scoreboard %>
 
-    <% @decks.each do |deck| %>
-      <a href='/deck/<%=deck.name%>/new_round'> <%= deck.name %> </a>
-    <% end %></br>
-    <h2>Deck, Round, Score</h2>
-    <% @data.each do |round| %>
-      
-      <%= round[1] %> <a href='/round/<%= round[0]%>'><%= round[0]%></a> <%= round[2] %></br>
-    <% end %>
+<% else %>
+  
+  <%= erb :_signup_box %><br>
+  <%= erb :_login_box %>
 
-  <% else %>
-
-    <div id="signup_box">
-      <form id="signup_form" action="/users" method="POST">
-        <ul>
-          <li><input type="text" name="user[email]" placeholder="email"></li>
-          <li><input type="password" name="user[password]" placeholder="password"></li>
-          <li><input type="password" name="password_confirmation" placeholder="re-enter password"></li>
-          <li><input type="submit" value="Create this ditty">
-        </ul>
-      </form>
-    </div>
-
-    <div id="login_box">
-      <form id="login_form" action="/sessions" method="POST">
-        <ul>
-          <li><input type="text" name="user[email]" placeholder="email"></li>
-          <li><input type="password" name="user[password]" placeholder="password"></li>
-          <li><input type="submit" value="Log in this ditty">
-        </ul>
-      </form>
-    </div>
-
-  <% end %>
-
-</div>
+<% end %>

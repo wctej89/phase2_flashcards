@@ -1,6 +1,6 @@
 <h2><%= @card.question %></h2>
 
-<%= if @verify then @verify end %><br>
+<%= @verify if @verify %><br>
 
 <form action="/deck/<%= @deck.name%>/<%= @card.id%>" method="post">
   <input type="text" name="answer" placeholder="Your Answer"><br>

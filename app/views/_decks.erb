@@ -1,0 +1,6 @@
+<h4>Choose from one of the following decks:</h4>
+<ul>
+  <% @decks.each do |deck| %>
+    <li><a href='/deck/<%=deck.name%>/new_round'><%= deck.name %></a></li>
+  <% end %></br>
+</ul>
