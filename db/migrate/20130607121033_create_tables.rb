@@ -28,7 +28,7 @@ class CreateTables < ActiveRecord::Migration
 
     create_table :guesses do |t|
       t.references :round, :card
-      t.integer    :total_per_card
+      t.integer    :total_per_card, default: 0
       
       t.timestamps
     end

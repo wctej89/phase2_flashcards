@@ -1,3 +1,9 @@
+get '/deck/:deck_name/new_round' do |deck_name|
+  deck = Deck.find_by_name(deck_name)
+  @round = Round.create(user_id: session[:user_id], deck_id: deck.id )
+  redirect "/deck/#{deck_name}/1"
+end
+
 get '/deck/:deck_name/:card_id' do |deck_name, card_id|
   @deck = Deck.find_by_name(deck_name)
   @card = Card.find(card_id)
@@ -9,8 +15,9 @@ post '/deck/:deck_name/:card_id' do |deck_name, card_id|
   @deck = Deck.find_by_name(deck_name)
   @card = Card.find(card_id)
 
-  round_id = @current_user.rounds.last
-  guess = Guess.find_or_create_by_round_id_and_card_id(round_id, card_id)
+  user = current_user
+  round = user.rounds.last
+  guess = Guess.find_or_create_by_round_id_and_card_id(round.id, card_id)
   guess.total_per_card += 1
   guess.save
 

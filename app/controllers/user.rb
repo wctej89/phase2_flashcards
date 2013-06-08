@@ -25,8 +25,6 @@ post '/sessions' do
 end
 
 get '/sessions/:id' do
-  # @user = User.find(params[:id])
-  # sessions[@user.id].clear
   session.clear
   redirect '/'
 end
