@@ -16,8 +16,8 @@ post '/deck/:deck_name/:card_id' do |deck_name, card_id|
   @card = Card.find(card_id)
 
   user = current_user
-  round = user.rounds.last
-  @guess = Guess.find_or_create_by_round_id_and_card_id(round.id, card_id)
+  @round = user.rounds.last
+  @guess = Guess.find_or_create_by_round_id_and_card_id(@round.id, card_id)
   @guess.total_per_card += 1
   @guess.save
 
@@ -33,6 +33,12 @@ post '/deck/:deck_name/:card_id' do |deck_name, card_id|
     @card = @deck.find_next
     redirect to("/deck/#{deck_name}/#{@card.id}")
   else
+    @deck_name = deck_name
+    @round_summary = Guess.where('round_id = ?', @round.id)
+    @round_summary.sort_by! {|card| card.card_id }
+    @total_correct_cards = @round_summary.sum('correct_count')
+    @total_guesses = @round_summary.sum('total_per_card')
+    @accuracy = ((@total_correct_cards.to_f / @total_guesses) * 100).to_i
     @deck.reset
     erb :done
   end

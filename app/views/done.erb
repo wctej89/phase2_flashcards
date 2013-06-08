@@ -1,1 +1,12 @@
-<p>ALL DONE</p>
+<h1>Congratulations! Here are your results:</h1>
+<p>Deck: <%= @deck_name.capitalize %>, Round: <%= @round.id %></p><br>
+<p>Accuracy = <%= @accuracy %>%</p><br>
+
+<ul>
+  <li>Card ID, Total Guesses, Correct</li>
+  <% @round_summary.each do |card| %>
+    <li>
+      <%= card.card_id %>, <%= card.total_per_card %>, <%= card.correct_count%>
+    </li>
+  <% end %>
+</ul>
