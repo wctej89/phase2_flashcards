@@ -11,6 +11,7 @@
     application.css is where you put your styles
   -->
   <link rel="stylesheet" href="/css/application.css">
+  <link href='http://fonts.googleapis.com/css?family=Marcellus+SC' rel='stylesheet' type='text/css'>
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
@@ -18,7 +19,17 @@
   <title></title>
 </head>
 <body>
-  <div class="container">
+  <div id="main_container">
+    <div id="nav_bar">
+      <div id="logo"><a href='/'>Quizly</a>
+      </div>
+      <% if logged_in? %>
+        <div class="nav_buttons"><a href='#'>Profile</a>
+        </div>
+        <div class="nav_buttons"><a href='/sessions/<%= @current_user.id %>'>Logout</a>
+        </div>
+      <% end %>
+    </div>
     <%= yield %>
   </div>
 </body>

@@ -2,7 +2,7 @@ get '/' do
   @decks = Deck.all
   if logged_in?
     user = current_user 
-    @data = User.find_all_scores(user.id)
+    # @data = User.find_all_scores(user.id)
   end
   erb :home
 end

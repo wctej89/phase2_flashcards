@@ -1,9 +1,110 @@
-.container {
-  margin: 20px auto;
-  width: 600px;
-  padding: 0px 20px 20px 20px;
-  border: 1px dotted black;
+#main_container {
+  width: 100%;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  color: #626263;
 }
-th {
-  text-align: left;
+
+#nav_bar{
+  position: absolute;
+  width: 100%;
+  height: 80px;
+  background-color: #ccc;
+
 }
+
+#logo{
+  font-family: "Marcellus SC";
+  float: left;
+  padding: 11px 25px;
+  font-size: 40px;
+}
+
+#logo a{
+  text-decoration: none;
+}
+
+.nav_buttons{
+  display: inline;
+  float: right;
+  margin: 22px 20px 0 0;
+  padding: 5px 15px; 
+  font-size: 20px;
+  border-radius: 5px;
+  border: 1px solid #333;
+}
+
+.nav_buttons:hover{
+  background-color: #ddd;
+}
+
+.nav_buttons a{
+  text-decoration: none;
+}
+
+a:visited{
+  color: #111;
+}
+
+#home_container{
+  padding-top: 80px;
+  height: 800px;
+}
+
+#logged_in {
+  width: 100%;
+  padding-top: 30px;
+}
+
+#select_deck{
+  /*width: 250px;*/
+  text-align: center;
+  /*margin: 0 auto;*/
+  font-size: 40px;
+  color: #333;
+}
+
+#prelogin {
+
+}
+
+#tag_line{
+  
+}
+
+#decks {
+  width: 70%;
+  margin: 0 auto;
+  text-decoration: none;
+
+}
+
+#decks ul {
+  width: 300px;
+  display: inline;
+  width: 100px;
+  height: 200px;
+  list-style: none;
+  text-align: center;
+  width: 100px;
+}
+
+#decks ul li {
+  padding: 50px;
+  width: 100px;
+}
+
+#decks ul li a{
+  text-align: center;
+
+}
+
+#image{
+  margin-top: 10px;
+  border-radius: 8px;
+  height: 100px;
+  background-color: blue;
+}
+
+
+
+

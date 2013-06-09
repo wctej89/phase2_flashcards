@@ -1,15 +1,19 @@
-<h1>Ice Cube's Quizinator!</h1>
-<h3>Where you can quiz yo'self with a quiz when you wanna be quizzed.</h3>
+<div id="home_container">
+ 
+  <% if logged_in? %>
+    <div id="logged_in">
+     <div id="select_deck">Select Deck</div>
+      <%= erb :_decks %>
+    </div>
+  <% else %>
+    <div id="prelogin">
+      <div id="tag_line">Placeholder Tag Line</div>
+      <%= erb :_login_signup_box %>
+    </div>
+  <% end %>
 
-<% if logged_in? %>
+</div>
 
-  <a href='/sessions/<%= @current_user.id %>'>Logout</a><br><br>
-  <%= erb :_decks %>
-  <%= erb :_scoreboard %>
 
-<% else %>
-  
-  <%= erb :_signup_box %><br>
-  <%= erb :_login_box %>
 
-<% end %>
+
