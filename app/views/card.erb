@@ -1,17 +1,21 @@
-<div id="question"><%= @card.question %></div>
+
+<div id="question">What is the capital of <%= @card.question %>?</div>
 
 <%= @verify if @verify %><br>
 
-<form id="card" action="/deck/<%= @deck.name%>/<%= @card.id%>" method="post">
-  <input type="text" name="answer" placeholder="Your Answer"><br>
-  <input type="submit" value="Submit Answer">
-</form>
+<section id="quiz_section">
+  <div id="quiz">
+    <form id="card" action="/deck/<%= @deck.name%>/<%= @card.id%>" method="post">
+      <input id="guess" type="text" name="answer" placeholder="Your Answer">
+      <input id="button" type="submit" value="Submit Answer">
+    </form>
+    <div id="answer"></div>
+    <div id="next">
+      <button id="next_card">Next Card</button>
+    </div>
+  </div>
+</section>
 
-<div id="next">
-  <button id="next_card">Next Card</button>
-</div>
-
-<div id="answer"> </div>
 
 
-                                                                                           
+
