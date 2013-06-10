@@ -16,16 +16,11 @@ $(document).ready(function() {
   }
 
   var get_next_card = function(url){
-    console.log("WE ARE HERE");
-    console.log(url);
     $.ajax({
       type: "GET",
       url: url
     }).done(function(data) {
-      console.log("WE ARE HERE THREEEE");
-      console.log(data);
-      console.log(data["deck"]);
-      path = '/deck/'+data["deck"]+data["id"];
+      path = '/deck/'+data["deck"]+'/'+data["id"];
       $('#question').text(data["question"]);
       $('#card').attr('action', path);
     });
