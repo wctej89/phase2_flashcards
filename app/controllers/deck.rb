@@ -5,6 +5,7 @@ get '/deck/:deck_name/new_round' do |deck_name|
 end
 
 get '/deck/:deck_name/:card_id' do |deck_name, card_id|
+  # @deck, @card = get_deck_card(deck_name, card_id)
   @deck = Deck.find_by_name(deck_name)
   @card = Card.find(card_id)
   @verify = session[:verify]
@@ -14,30 +15,16 @@ end
 post '/next/deck/:deck_name/:card_id' do |deck_name, card_id|
   content_type :json
 
-  @deck = Deck.find_by_name(deck_name)
-  @card = Card.find(card_id)
-  user = current_user
-  @round = user.rounds.last
-
-  if @deck.finished?
-    @deck.reset
-    url = "/round/#{@round.id}"
-  else
-    @card = @deck.find_next
-    url = "/deck/#{deck_name}/#{@card.id}"
-  end
+  user, round, deck, card = get_info(deck_name, card_id)
+  url = deck.get_url(round.id, card.id)
   url.to_json
 end
 
 post '/deck/:deck_name/:card_id/:user_answer' do |deck_name, card_id, user_answer|
-  @deck = Deck.find_by_name(deck_name)
-  @card = Card.find(card_id)
-  user = current_user
-  @round = user.rounds.last
+  user, round, deck, card = get_info(deck_name, card_id)
   
-  @guess = Guess.find_or_create_by_round_id_and_card_id(@round.id, card_id)
-  @guess.increment_guesses
-  @guess.mark_correct if @card.correct?(user_answer) 
-  @card.answer
+  Guess.mark_if_correct(round, card, user_answer)
+
+  card.answer
 end
 

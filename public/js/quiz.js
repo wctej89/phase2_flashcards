@@ -33,7 +33,6 @@ $(document).ready(function() {
     response.done(function(data) {    
       $('#answer').html(data);
       button_for_next(data);
-
     });
   } 
 });

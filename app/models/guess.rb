@@ -31,5 +31,11 @@ class Guess < ActiveRecord::Base
     self.correct_count = 1
     self.save
   end
+
+  def self.mark_if_correct(round, card, user_answer)
+    guess = Guess.find_or_create_by_round_id_and_card_id(round.id, card.id)
+    guess.increment_guesses
+    guess.mark_correct if card.correct?(user_answer) 
+  end
 end
   
