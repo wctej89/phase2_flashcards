@@ -1,0 +1,59 @@
+#signup_form ul li {
+  list-style-type: none;
+}
+
+#nav_bar{
+  position: absolute;
+  width: 100%;
+  height: 80px;
+  background-color: #16A085;
+}
+
+#logo a{
+  text-decoration: none;
+  color: #ECF0F1;
+}
+
+#home_container{
+  padding-top: 80px;
+  height: 800px;
+  background-image: url('../chalkboard.jpg');
+}
+
+#prelogin {
+  margin-top: 20%;
+  height: 40%;
+}
+
+#tag_line {
+  
+}
+
+#signup_box {
+  background-color: #16A085;
+  border-radius: 5px;
+  height: 60%;
+  width: 40%;
+  margin: 0 auto;
+}
+
+input {
+  line-height: normal;
+  height: 30px;
+  width: 70%;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+.home_buttons{
+  display: inline;
+  font-size: 20px;
+  border-radius: 5px;
+  border: 1px solid #333;
+}
+
+.home_buttons:hover{
+  background-color: #ddd;
+}
+
+

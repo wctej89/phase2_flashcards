@@ -1,8 +1,8 @@
 get '/' do
+  @errors = []
   @decks = Deck.all
   if logged_in?
     user = current_user 
-    # @data = User.find_all_scores(user.id)
   end
   erb :home
 end
@@ -10,12 +10,13 @@ end
 post '/users' do
   if params[:user][:password] == params[:password_confirmation]
     @user = User.create(params[:user])
-    @user.errors.full_messages unless @user.valid?
+    @errors = @user.errors.full_messages unless @user.valid?
     create_session(@user)
   else
-    p "password and confirmation do not match"
+    @errors = ["Password and confirmation do not match"]
   end
-  redirect '/'
+  @decks = Deck.all
+  erb :home
 end
 
 post '/sessions' do
@@ -23,14 +24,20 @@ post '/sessions' do
   if @user
     create_session(@user)
   else
-    p 'invalid email or password'
+    @errors = ["Invalid email or password"]
   end
-  redirect '/'
+  @decks = Deck.all
+  erb :home
 end
 
 get '/sessions/:id' do
   session.clear
   redirect '/'
+end
+
+get '/users/:id' do
+  @data = User.find_all_scores(params[:id])
+  erb :_scoreboard
 end
 
 
