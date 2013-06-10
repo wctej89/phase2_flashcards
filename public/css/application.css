@@ -105,6 +105,14 @@ a:visited{
   background-color: blue;
 }
 
+#question{
+  padding-top: 80px;
+}
+
+#next{
+  display: none;
+}
+
 
 
 

@@ -2,10 +2,16 @@
 
 <%= @verify if @verify %><br>
 
-<form action="/deck/<%= @deck.name%>/<%= @card.id%>" method="post">
+<form id="card" action="/deck/<%= @deck.name%>/<%= @card.id%>" method="post">
   <input type="text" name="answer" placeholder="Your Answer"><br>
   <input type="submit" value="Submit Answer">
 </form>
+
+<div id="next">
+  <button id="next_card">Next Card</button>
+</div>
+
+<div id="answer"> </div>
 
 
                                                                                            
