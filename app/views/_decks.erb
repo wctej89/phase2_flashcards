@@ -1,8 +1,9 @@
 <div id="decks">
-  <ul>
-    <% @decks.each do |deck| %>
-      <li><a href='/deck/<%=deck.name%>/new_round'><%= deck.name %></a><div id="image"><a href='/deck/<%=deck.name%>/new_round'></a></div></li>
-
-    <% end %></br>
-  </ul>
+  <% @decks.each do |deck| %>
+    <div class="deck-box">
+      <img src="../check.png" alt="Retina-Ready" class="deck-image">
+      <p class="deck-title"><%= deck.name %></p>
+      <a class="deck-button" href='/deck/<%=deck.name%>/new_round'>Let's Go!</a>
+    </div>
+  <% end %>
 </div>
