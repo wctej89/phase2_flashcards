@@ -5,7 +5,7 @@
 }
 
 #question {
-  width: 300px;
+  width: 100%;
   text-align: center;
   margin: 80px auto 40px auto;
   font-size: 50px;
@@ -91,5 +91,9 @@
   font-size: 22px;
   border: 1px solid #ECF0F1;
   border-radius: 5px;
+}
+
+#next_card:hover{
+  background-color: #16A085;
 }
 
