@@ -28,7 +28,7 @@
       <div id="logo"><a href='/'>Quizly</a>
       </div>
       <% if logged_in? %>
-        <div class="nav_buttons"><a href='#'>Profile</a>
+        <div class="nav_buttons"><a href='/users/<%=@current_user.id%>'>Profile</a>
         </div>
         <div class="nav_buttons"><a href='/sessions/<%= @current_user.id %>'>Logout</a>
         </div>
