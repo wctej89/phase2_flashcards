@@ -12,7 +12,9 @@ florida: "Tallahassee",
 georgia: "Atlanta"}
 
 capitals.each do |state, capital|
-  deck.cards << Card.create(question: state.to_s.capitalize, answer: capital)
+
+  question = "What is the capital of " + state.to_s.capitalize + "?"
+  deck.cards << Card.create(question: question, answer: capital)
 end
 
 # Hawaii: Honolulu,

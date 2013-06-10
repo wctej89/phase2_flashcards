@@ -1,4 +1,9 @@
-<h4>Deck, Round, Score</h4>
-<% @data.each do |round| %> 
-  <%= round[1] %>, <a href='/round/<%= round[0]%>'><%= round[0]%></a>, <%= round[2] %>%</br>
-<% end %>
+  
+<div id="scoreboard">
+  <div id="scoreboard_title">Deck, Round, Score</div>
+  <% @data.each do |round| %> 
+  <div id="round">
+    <%= round[1] %> <a href='/round/<%= round[0]%>'><%= round[0]%></a> <%= round[2] %>%</br>
+  </div>
+  <% end %>
+</div>

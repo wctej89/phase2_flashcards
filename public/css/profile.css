@@ -1,0 +1,43 @@
+#scoreboard{
+  padding-top: 120px;
+  width: 100%;  
+}
+
+#scoreboard_title{
+  width: 600px;
+  text-align: center;
+  margin: 0 auto;
+  height: 60px;
+  font-size: 50px;
+  color: #ddd;
+  word-spacing: 25px;
+  font-family: "Gloria Hallelujah";
+}
+
+
+#round{
+  width: 600px;
+  padding-top: 45px;
+  padding-right: 20px;
+  margin-right: 20px;
+  text-align: center;
+  margin: 0 auto;
+  height: 60px;
+  font-size: 40px;
+  color: #ddd;
+  word-spacing: 80px;
+  font-family: "Gloria Hallelujah";
+}
+
+#round a{
+  text-decoration: none;
+  color: #16A085;
+}
+
+#round a:hover{
+  color: #1ABC9C;
+}
+
+#round a:visited{
+  color: #16A085;
+}

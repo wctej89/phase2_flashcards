@@ -8,6 +8,7 @@
   padding: 140px 0px 60px 200px;
   font-size: 40px;
   color: #ddd;
+  font-family: "Gloria Hallelujah";
 }
 
 #quiz_section{
@@ -21,6 +22,7 @@
   width: 500px;
   height: 250px;
   margin: 0px auto;
+  font-family: "Gloria Hallelujah";
 }
 
 #card {
@@ -44,7 +46,7 @@
   margin-top: 20px;
   width: 300px;
   background-color: #1ABC9C;
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family: "Gloria Hallelujah";
   color: #ecf0f1;
   font-size: 22px;
 }
@@ -61,7 +63,7 @@
   padding: 15px 0px 0px 0px;
   width: 300px;
   background-color: #16A085;
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family: "Gloria Hallelujah";
   color: #fff;
   font-size: 22px;
 }
@@ -83,7 +85,7 @@
   padding-right: 10px;
   width: 300px;
   background-color: #1ABC9C;
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family: "Gloria Hallelujah";
   color: #ecf0f1;
   font-size: 22px;
   border-radius: 5px;
