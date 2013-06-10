@@ -11,16 +11,6 @@ get '/deck/:deck_name/:card_id' do |deck_name, card_id|
   erb :card
 end
 
-# post '/deck/:deck_name/:card_id' do |deck_name, card_id|
-#   @deck = Deck.find_by_name(deck_name)
-#   @card = Card.find(card_id)
-
-#   user = current_user
-#   @round = user.rounds.last
-#   @guess = Guess.find_or_create_by_round_id_and_card_id(@round.id, card_id)
-#   @guess.increment_guesses
-# end
-
 post '/next/deck/:deck_name/:card_id' do |deck_name, card_id|
   content_type :json
 
