@@ -30,19 +30,24 @@
   padding: 5px 15px; 
   font-size: 20px;
   border-radius: 5px;
-  border: 1px solid #333;
+  border: 1px solid #ECF0F1;
+  width: 80px;
+  height: 25px;
+  text-align: center;
+}
+
+.nav_buttons a {
+  text-decoration: none;
+  color: #ECF0F1;
+  font-size: 18px;
+}
+
+.nav_buttons a:visited {
+  color: #ECF0F1;
 }
 
 .nav_buttons:hover{
-  background-color: #ddd;
-}
-
-.nav_buttons a{
-  text-decoration: none;
-}
-
-a:visited{
-  color: #111;
+  background-color: #16A085;
 }
 
 #home_container{
@@ -103,6 +108,11 @@ a:visited{
   border-radius: 8px;
   height: 100px;
   background-color: blue;
+}
+
+#select_deck {
+  font-family: "Gloria Hallelujah";
+  color: #ECF0F1;
 }
 
 
