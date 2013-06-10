@@ -1,16 +1,19 @@
-<ul id="errors">
-<% @errors.each do |error| %>
-    <li><%= error %></li>
+<% if !@errors.empty? %>
+  <ul id="errors">
+  <% @errors.each do |error| %>
+      <li><%= error %></li>
+  <% end %>
+  </ul>
 <% end %>
-</ul>
+
 <div id="signup_box">
   <form id="signup_form" action='/sessions' method="POST">
     <ul>
       <li><input type="text" name="user[email]" placeholder="email"></li>
       <li><input type="password" name="user[password]" placeholder="password"></li>
       <li><input id="confirmation" style="display: none;" type="password" name="password_confirmation" placeholder="re-enter password"></li>
-      <li><input class="home_buttons" id="createbutton" type="submit" value="Create this ditty">
-      <li><input class="home_buttons" id="loginbutton" style="display: block;"type="submit" value="log in"></li>
+      <input class="home_buttons" id="createbutton" type="submit" value="Sign Up">
+      <input class="home_buttons" id="loginbutton" style="display: inline-block;"type="submit" value="Log In">
     </ul>
   </form>
 </div>

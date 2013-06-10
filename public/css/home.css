@@ -4,13 +4,17 @@ body {
 
 #signup_form ul li {
   list-style-type: none;
+  width: 300px;
+  margin: 0;
+  padding: 0;
 }
 
 #nav_bar{
   position: absolute;
   width: 100%;
-  height: 80px;
-  background-color: #16A085;
+  height: 90px;
+  /*background-color: #16A085;*/
+  background: linear-gradient(to bottom, rgba(22,160,133,1) 0%,rgba(43,165,155,0.42) 58%,rgba(47,183,179,0.18) 82%,rgba(26,188,156,0) 100%);
 }
 
 #logo a{
@@ -20,44 +24,81 @@ body {
 
 #home_container{
   padding-top: 80px;
-  height: 800px;
+  height: 750px;
   background-image: url('../chalkboard.jpg');
 }
 
 #prelogin {
-  margin-top: 10%;
-  height: 40%;
+  margin-top: 170px;
+  height: 400px;
+  width: 100%;
 }
 
 #tag_line {
-  
+  width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  padding-right: 5px;
+  font-size: 40px;
+  color: #ECF0F1;
+  font-family: "Gloria Hallelujah";
+}
+
+#errors {
+  /*display: none;*/
+  width: 358px;
+  height: auto;
+  background-color: #ECF0F1;
+  margin: 0 auto;
+  margin-top: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border: 3px solid #E74C3C;
+  border-radius: 5px;
+  color: #E74C3C;
 }
 
 #signup_box {
   background-color: #16A085;
   border-radius: 5px;
-  height: 60%;
-  width: 40%;
+  width: 400px;
+  height: auto;
   margin: 0 auto;
+  margin-top: 35px;
+  padding-bottom: 8px;
+  -webkit-box-shadow: 0 8px 6px -6px #363636;
+}
+
+#signup_form {
+  padding-top: 10px;
 }
 
 input {
   line-height: normal;
-  height: 30px;
-  width: 70%;
+  height: 35px;
+  width: 285px;
   border-radius: 5px;
+  margin-left: 5px;
   margin-bottom: 5px;
+  padding-left: 15px;
+  color: #363636;
 }
 
 .home_buttons{
   display: inline;
   font-size: 20px;
   border-radius: 5px;
-  border: 1px solid #333;
+  border: 1px solid #ECF0F1;
+  width: 145px;
+  height: 37px;
+  background-color: #1ABC9C;
+  color: #ECF0F1;
+  margin-top: 5px;
+  margin-right: 5px;
 }
 
 .home_buttons:hover{
-  background-color: #ddd;
+  background-color: #16A085;
 }
 
 
